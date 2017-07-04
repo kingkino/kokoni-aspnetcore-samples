@@ -2,9 +2,29 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "bootstrap": "v4.0.0-alpha.6",
+    "jquery-validation": "1.16.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "sb-admin": "*",
+    "angular-chart.js": "1.1.1",
+    "angular-animate": "v1.6.5",
+    "angular-bootstrap": "v1.1.0",
+    "angular-resource": "v1.6.5",
+    "angular-touch": "v1.6.5",
+    "font-awesome": "v4.7.0",
+    "jquery": "3.2.1"
+  },
+  "resolutions": {
+    "ammap": "v3.18.3",
+    "jquery": "3.2.1",
+    "angular-chart.js": "1.1.1",
+    "jquery-validation": "1.16.0",
+    "bootstrap": "v4.0.0-alpha.6",
+    "angular": "1.x",
+    "angular-animate": "v1.6.5",
+    "angular-bootstrap": "v1.1.0",
+    "angular-resource": "v1.6.5",
+    "angular-touch": "v1.6.5",
+    "font-awesome": "v4.7.0"
   }
 }
