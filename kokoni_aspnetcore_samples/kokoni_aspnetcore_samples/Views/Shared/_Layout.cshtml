@@ -16,7 +16,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
     @Html.Raw(JavaScriptSnippet.FullScript)
+
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -32,14 +34,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Landing" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Landing" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Landing" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Try" asp-action="Index">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container body-content">
+
+        <div ng-app="sbAdminApp">
+
+            <div ui-view></div>
+
+        </div>
+
         @RenderBody()
         <hr />
         <footer>

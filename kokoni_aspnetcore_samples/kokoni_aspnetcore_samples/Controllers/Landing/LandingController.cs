@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace kokoni_aspnetcore_samples.Controllers
+namespace kokoni_aspnetcore_samples.Controllers.Landing
 {
-    public class HomeController : Controller
+    public class LandingController : Controller
     {
         public IActionResult Index()
         {
