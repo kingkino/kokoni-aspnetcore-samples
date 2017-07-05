@@ -12,7 +12,7 @@ namespace kokoni_aspnetcore_samples.Controllers.Tutorial1
     public class HelloWorldController : Controller
     {
         // GET: /HelloWorld/
-        [Route("Tutoral1")]
+        [Route("Tutorial1")]
         public IActionResult Index()
         {
             return View();

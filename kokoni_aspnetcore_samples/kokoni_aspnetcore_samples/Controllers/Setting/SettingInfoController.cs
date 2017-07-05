@@ -25,13 +25,8 @@ namespace kokoni_aspnetcore_samples.Controllers.Setting
 
             settings += _hostingEnvironment.ApplicationName + Environment.NewLine;
             settings += _hostingEnvironment.EnvironmentName + Environment.NewLine;
-
-            settings += "---------------------------------------------------------------------------------------------" + Environment.NewLine;
-
             settings += _hostingEnvironment.WebRootPath + Environment.NewLine;
             settings += _hostingEnvironment.ContentRootPath + Environment.NewLine;
-            settings += _hostingEnvironment.WebRootFileProvider + Environment.NewLine;
-            settings += _hostingEnvironment.ContentRootFileProvider + Environment.NewLine;
 
             ViewData["setting"] = settings;
 

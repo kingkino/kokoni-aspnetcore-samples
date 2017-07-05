@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using kokoni_aspnetcore_samples.Models;
+using kokoni_aspnetcore_samples.Models.Tutorial2;
 
 namespace kokoni_aspnetcore_samples
 {
@@ -29,6 +32,9 @@ namespace kokoni_aspnetcore_samples
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<MvcMovieContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +61,8 @@ namespace kokoni_aspnetcore_samples
                     name: "default",
                     template: "{controller=Landing}/{action=Index}/{id?}");
             });
+
+            SeedData.Initialize(app.ApplicationServices);
         }
     }
 }
