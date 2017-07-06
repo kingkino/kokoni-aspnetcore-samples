@@ -29,9 +29,20 @@ namespace kokoni_aspnetcore_samples
             }
 
             Configuration = builder.Build();
+
+            if (env.IsDevelopment())
+            {
+                connString = Configuration["ConnectionString:MvcMovieContext"];
+            }
+            else
+            {
+                connString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_MvcMovieContext");
+            }
         }
 
         public IConfigurationRoot Configuration { get; }
+
+        private string connString { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -39,8 +50,7 @@ namespace kokoni_aspnetcore_samples
             // Add framework services.
             services.AddMvc();
 
-            services.AddDbContext<MvcMovieContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionString:MvcMovieContext"]));
+            services.AddDbContext<MvcMovieContext>(options => options.UseSqlServer(connString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
