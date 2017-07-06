@@ -22,6 +22,12 @@ namespace kokoni_aspnetcore_samples
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
             Configuration = builder.Build();
         }
 
@@ -34,7 +40,7 @@ namespace kokoni_aspnetcore_samples
             services.AddMvc();
 
             services.AddDbContext<MvcMovieContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+                    options.UseSqlServer(Configuration["ConnectionString:MvcMovieContext"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,9 +8,10 @@ using kokoni_aspnetcore_samples.Models;
 namespace kokoni_aspnetcore_samples.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    partial class MvcMovieContextModelSnapshot : ModelSnapshot
+    [Migration("20170706004526_Rating")]
+    partial class Rating
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -29,9 +30,7 @@ namespace kokoni_aspnetcore_samples.Migrations
 
                     b.Property<DateTime>("ReleaseDate");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100);
+                    b.Property<string>("Title");
 
                     b.HasKey("ID");
 
