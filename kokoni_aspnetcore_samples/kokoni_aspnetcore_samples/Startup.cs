@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using kokoni_aspnetcore_samples.Models;
 using kokoni_aspnetcore_samples.Models.Tutorial2;
+using kokoni_aspnetcore_samples.MiddleWare;
 
 namespace kokoni_aspnetcore_samples
 {
@@ -36,7 +37,8 @@ namespace kokoni_aspnetcore_samples
             }
             else
             {
-                connString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_MvcMovieContext");
+                connString = Configuration["Environmentvariables:SQLAZURECONNSTR_MvcMovieContext"];
+                // connString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_MvcMovieContext");
             }
         }
 
@@ -68,6 +70,8 @@ namespace kokoni_aspnetcore_samples
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseMiddleware<BasicAuthentication>(Configuration["basicAuthentication:basicUser"], Configuration["basicAuthentication:basicPassword"]);
 
             app.UseStaticFiles();
 
