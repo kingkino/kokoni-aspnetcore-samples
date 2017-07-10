@@ -71,7 +71,7 @@ namespace kokoni_aspnetcore_samples
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseMiddleware<BasicAuthentication>(Configuration["basicAuthentication:basicUser"], Configuration["basicAuthentication:basicPassword"]);
+            //app.UseMiddleware<BasicAuthentication>(Configuration["basicAuthentication:basicUser"], Configuration["basicAuthentication:basicPassword"]);
 
             app.UseStaticFiles();
 
