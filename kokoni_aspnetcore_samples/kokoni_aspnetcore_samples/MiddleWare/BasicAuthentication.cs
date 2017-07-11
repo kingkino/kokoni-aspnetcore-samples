@@ -10,9 +10,9 @@ namespace kokoni_aspnetcore_samples.MiddleWare
 {
     public class BasicAuthentication
     {
-        private string _USER_NAME { get; set; } = "root";
+        private string _USER_NAME { get; set; }
 
-        private string _PASSWORD { get; set; } = "admin";
+        private string _PASSWORD { get; set; }
 
         readonly RequestDelegate _context;
 

@@ -37,7 +37,7 @@ namespace kokoni_aspnetcore_samples
             }
             else
             {
-                connString = Configuration["Environmentvariables:SQLAZURECONNSTR_MvcMovieContext"];
+                connString = Configuration.GetConnectionString("SQLAZURECONNSTR_MvcMovieContext");
                 // connString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_MvcMovieContext");
             }
         }
@@ -71,9 +71,19 @@ namespace kokoni_aspnetcore_samples
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //app.UseMiddleware<BasicAuthentication>(Configuration["basicAuthentication:basicUser"], Configuration["basicAuthentication:basicPassword"]);
+            // basic認証の追加
+            if (env.IsDevelopment())
+            {
+                // app.UseMiddleware<BasicAuthentication>(Configuration["basicAuthentication:basicUser"], Configuration["basicAuthentication:basicPassword"]);
+            }
+            else
+            {
+                app.UseMiddleware<BasicAuthentication>(Environment.GetEnvironmentVariable("basicAuthentication:basicUser"), Environment.GetEnvironmentVariable("basicAuthentication:basicPassword"));
+            }
 
             app.UseStaticFiles();
+
+            app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 
             app.UseMvc(routes =>
             {
