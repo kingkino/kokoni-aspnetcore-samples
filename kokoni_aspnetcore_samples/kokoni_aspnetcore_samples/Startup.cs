@@ -37,8 +37,8 @@ namespace kokoni_aspnetcore_samples
             }
             else
             {
-                connString = Configuration.GetConnectionString("SQLAZURECONNSTR_MvcMovieContext");
-                // connString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_MvcMovieContext");
+                // connString = Configuration.GetConnectionString("SQLAZURECONNSTR_MvcMovieContext");
+                connString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_MvcMovieContext");
             }
         }
 

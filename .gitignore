@@ -2,3 +2,4 @@ kokoni_aspnetcore_samples/kokoni_aspnetcore_samples/obj/
 *.js
 kokoni_aspnetcore_samples/kokoni_aspnetcore_samples/wwwroot/lib/
 kokoni_aspnetcore_samples/kokoni_aspnetcore_samples/bin/
+kokoni_aspnetcore_samples/kokoni_aspnetcore_samples/Properties/PublishProfiles/kokoni-aspnetcore-samples - Web Deploy.pubxml
